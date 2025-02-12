@@ -18,10 +18,10 @@ void display_main_menu() {
 // Fonction principale
 int main() {
     int choice;
-    srand(time(NULL));  // Initialisation de rand() pour générer des valeurs aléatoires
+    srand(time(NULL));  // Génération des valeurs aléatoires
     Player player;  // Déclaration du joueur
 
-    while (1) {  // Boucle infinie pour rester dans le menu jusqu'à ce que l'utilisateur quitte
+    while (1) {  // Boucle du menu
         display_main_menu();
         printf("Enter your choice: ");
         scanf("%d", &choice);

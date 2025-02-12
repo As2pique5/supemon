@@ -33,9 +33,9 @@ Player create_player() {
             break;
     }
 
-    p.supemon_count = 1;         // Le joueur commence avec un seul Supémon
-    p.selected_supemon = 0;      // Le premier Supémon est celui sélectionné
-    p.supcoins = 500;            // On commence avec 500 Supcoins
+    p.supemon_count = 1;         // un seul Supémon au départ
+    p.selected_supemon = 0;      // celui sélectionné
+    p.supcoins = 500;            // 500 Supcoins initiaux
     p.item_count = 0;            // Pas d'objets au début
 
     printf("Welcome %s! You have chosen %s.\n", p.name, p.supemons[0].name);

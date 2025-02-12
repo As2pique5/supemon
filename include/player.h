@@ -1,7 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "supemon.h"  // Inclure la structure des Supémons
+#include "supemon.h" 
 
 #define MAX_SUPEMONS 6
 #define MAX_ITEMS 10
@@ -21,7 +21,7 @@ typedef struct {
     int selected_supemon;       // Supémon sélectionné
     Item items[MAX_ITEMS];      // Inventaire
     int item_count;             // Nombre d'objets possédés
-    int supcoins;               // Monnaie du joueur
+    int supcoins;               // Monnaie
 } Player;
 
 // Déclaration de la fonction pour créer un joueur

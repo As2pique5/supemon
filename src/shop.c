@@ -7,7 +7,7 @@
 Item shop_items[] = {
     {"Potion", 5, 100},
     {"Super Potion", 10, 300},
-    {"Rare Candy", 0, 700}  // Rare Candy n'ajoute pas de HP, mais augmente le niveau
+    {"Rare Candy", 0, 700}  // Rare Candy : pas de HP, mais augmentation du niveau
 };
 
 int shop_items_count = 3;
@@ -20,7 +20,7 @@ void display_shop_items() {
     }
 }
 
-// Fonction pour acheter des objets
+// Achat des objets
 void buy_item(Player *player) {
     display_shop_items();
     int choice;
@@ -46,7 +46,7 @@ void buy_item(Player *player) {
     }
 }
 
-// Fonction pour vendre des objets
+// Vente des objets
 void sell_item(Player *player) {
     if (player->item_count == 0) {
         printf("You have no items to sell.\n");

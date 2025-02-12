@@ -6,7 +6,7 @@
 #include <errno.h>
 
 
-// Fonction pour sauvegarder la partie
+// Fonction sauvegarde
 void save_game(Player *player) {
     FILE *file = fopen("savefile.txt", "w");
     if (file == NULL) {
@@ -14,12 +14,12 @@ void save_game(Player *player) {
         return;
     }
 
-    // Sauvegarde des informations du joueur
+    // Sauvegarde info joueur
     fprintf(file, "%s\n", player->name);
     fprintf(file, "%d\n", player->supcoins);
     fprintf(file, "%d\n", player->supemon_count);
 
-    // Sauvegarde des Supémons
+    // Sauvegarde Supémons
     for (int i = 0; i < player->supemon_count; i++) {
         Supemon s = player->supemons[i];
         fprintf(file, "%s %d %d %d %d %d %d %d %d %d\n",
@@ -27,7 +27,7 @@ void save_game(Player *player) {
                 s.attack, s.defense, s.evasion, s.accuracy, s.speed);
     }
 
-    // Sauvegarde des objets
+    // Sauvegarde objets
     fprintf(file, "%d\n", player->item_count);
     for (int i = 0; i < player->item_count; i++) {
         Item item = player->items[i];
@@ -39,7 +39,7 @@ void save_game(Player *player) {
 }
 
 
-// Fonction pour charger la partie
+// Fonction charger partie
 Player load_game() {
     Player player;
     FILE *file = fopen("savefile.txt", "r");
@@ -52,12 +52,12 @@ Player load_game() {
         return player;
     }
 
-    // Chargement des informations du joueur
+    // Chargement info joueur
     fscanf(file, "%s", player.name);
     fscanf(file, "%d", &player.supcoins);
     fscanf(file, "%d", &player.supemon_count);
 
-    // Chargement des Supémons
+    // Chargement Supémons
     for (int i = 0; i < player.supemon_count; i++) {
         Supemon *s = &player.supemons[i];
         fscanf(file, "%s %d %d %d %d %d %d %d %d %d",
@@ -65,7 +65,7 @@ Player load_game() {
                &s->attack, &s->defense, &s->evasion, &s->accuracy, &s->speed);
     }
 
-    // Chargement des objets
+    // Chargement objets
     fscanf(file, "%d", &player.item_count);
     for (int i = 0; i < player.item_count; i++) {
         Item *item = &player.items[i];

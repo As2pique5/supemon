@@ -7,11 +7,11 @@
 #include "../include/supemon.h"
 #include "../include/shop.h"
 
-// Fonction pour lancer un combat contre un Supémon sauvage
+// Lancement d'un combat contre un Supémon sauvage
 void battle(Player *player) {
     printf("\nYou venture into the wild...\n");
 
-    // Générer un Supémon sauvage aléatoire
+    // Génération aléatoire du Supémon sauvage
     Supemon wild_supemon;
     int random_supemon = rand() % 3;
     printf("Random number for wild Supemon: %d\n", random_supemon);  // Debug info
@@ -38,7 +38,7 @@ void battle(Player *player) {
 
 
     while (player_supemon->hp > 0 && wild_supemon.hp > 0) {
-        printf("Entering the battle loop...\n");  // Debug info
+        printf("Entering the battle loop...\n"); 
 
         if (player_turn) {
             // Tour du joueur
@@ -73,7 +73,7 @@ void battle(Player *player) {
             attack(&wild_supemon, player_supemon);
         }
 
-        // Vérifier la fin du combat
+        // Vérification de la fin du combat
         if (wild_supemon.hp <= 0) {
             printf("\nYou defeated %s!\n", wild_supemon.name);
             int reward = (rand() % 401) + 100;  // Entre 100 et 500 Supcoins
@@ -88,11 +88,11 @@ void battle(Player *player) {
             return;
         }
 
-        player_turn = !player_turn;  // Changer de tour
+        player_turn = !player_turn;  // On change de tour ici
     }
 }
 
-// Fonction pour attaquer un Supémon
+// Attaque
 void attack(Supemon *attacker, Supemon *defender) {
     int damage = (attacker->attack * 3) / defender->defense;
     if (damage <= 0) damage = 1;  // Assurer qu'il y a au moins 1 dégât
@@ -104,7 +104,7 @@ void attack(Supemon *attacker, Supemon *defender) {
            attacker->name, damage, defender->name, defender->hp);
 }
 
-// Fonction pour tenter de fuir le combat
+// Fuite
 int run_away(Supemon *player_supemon, Supemon *wild_supemon) {
     int chance = (player_supemon->speed * 100) / (player_supemon->speed + wild_supemon->speed + 1);
     int roll = rand() % 100;
@@ -117,7 +117,7 @@ int run_away(Supemon *player_supemon, Supemon *wild_supemon) {
     }
 }
 
-// Fonction pour tenter de capturer un Supémon
+// Capture
 int capture_supemon(Player *player, Supemon *wild_supemon) {
     float capture_rate = (float)(wild_supemon->max_hp - wild_supemon->hp) / wild_supemon->max_hp - 0.5;
     int roll = rand() % 100;
@@ -138,7 +138,7 @@ int capture_supemon(Player *player, Supemon *wild_supemon) {
     }
 }
 
-// Fonction pour donner de l'expérience après un combat gagné
+// Expérience
 void gain_experience(Supemon *player_supemon, int enemy_level) {
     int experience_gained = (rand() % 401 + 100) * enemy_level;
     player_supemon->experience += experience_gained;
@@ -156,7 +156,7 @@ void gain_experience(Supemon *player_supemon, int enemy_level) {
     }
 }
 
-// Fonction pour utiliser un objet en combat
+// Objet
 void use_item_in_battle(Player *player) {
     if (player->item_count == 0) {
         printf("You have no items to use!\n");

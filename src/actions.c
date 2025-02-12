@@ -7,7 +7,7 @@
 #include "../include/center.h"
 #include "../include/save.h"
 
-// Fonction pour afficher le menu des actions hors combat
+// Actions hors combat
 void display_action_menu(Player *player) {
     int choice;
 
